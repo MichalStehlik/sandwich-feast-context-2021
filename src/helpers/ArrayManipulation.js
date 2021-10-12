@@ -1,4 +1,5 @@
-export const copyMultidimensionalArray = arr => { // a sense of darkness embracing my soul
+export const copyMultidimensionalArray = arr => { 
+    // a sense of darkness embracing my soul
     return JSON.parse(JSON.stringify(arr));
 }
 export const arraySum = array =>
