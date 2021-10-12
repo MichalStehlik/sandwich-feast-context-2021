@@ -1,16 +1,12 @@
 import {useContext} from "react";
-import {TablesContext} from "../providers/TablesProvider";
-import {copyMultidimensionalArray} from "../helpers/ArrayManipulation";
+import {TablesContext, ADD_VALUE} from "../providers/TablesProvider";
 
 export const Seat = ({table, seat}) => {
-    const {tables, setTables} = useContext(TablesContext);
-    const addValue = (tables, table, seat) => {
-        let newTables = copyMultidimensionalArray(tables);
-        newTables[table][seat] += 1;
-        setTables(newTables);
-    }
+    const {store, dispatch} = useContext(TablesContext);
     return(
-        <button onClick={e => {addValue(tables, table, seat)}}>{tables[table][seat]}</button>
+        <button onClick={
+            e => {dispatch({type: ADD_VALUE, table: table, seat: seat})}
+        }>{store.tables[table][seat]}</button>
     );
 }
 
