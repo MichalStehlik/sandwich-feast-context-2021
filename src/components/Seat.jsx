@@ -1,8 +1,10 @@
-export const Seat = () => {
+import {useContext} from "react";
+import {TablesContext} from "../providers/TablesProvider";
+
+export const Seat = ({table, seat}) => {
+    const {tables} = useContext(TablesContext);
     return(
-        <div>
-            Seat
-        </div>
+        <button >{tables[table][seat]}</button>
     );
 }
 
